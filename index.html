@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="src/style.css">
+    <title>Sketch: OP-Z</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="src/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="title" content="Sketch: OP-Z">
+    <meta name="description" content="Sketch with the OP-Z">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sketch.nathanwillson.com">
+    <meta property="og:title" content="Sketch: OP-Z">
+    <meta property="og:description" content="Sketch with the OP-Z">
+    <meta property="og:image" content="">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sketch.nathanwillson.com">
+    <meta property="twitter:title" content="Sketch: OP-Z">
+    <meta property="twitter:description" content="Sketch with the OP-Z">
+    <meta property="twitter:image" content="">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="menu">
+        <div class="content">
+          <h1>Sketch OPZ</h1>
+          <hr/>
+          <p>
+            Etch A Sketch meets the OP-Z.
+          </p>
+          <p class="error">
+            REQUIRES AN OP-Z SYNTHESIZER.
+          </p>
+          <hr/>
+          <h2>Instructions</h2>
+          </hr>
+          <ol>
+            <li>Plug in your OP-Z into your computer</li>
+            <li>Make sure it's set to output midi (I used <a href="https://tenage.engineering/guides/op-z/app" target="_blank">the iOS app</a> to do this)</li>
+            <li>Click on the connect button</li>
+          </ol>
+          <button class="mobile">
+            Desktop only
+          </button>
+          <button id="connect" class="desktop">
+            Connect
+          </button>
+          <p id="connect-error" class="error"></p>
+          <hr/>
+          <h3>OP-Z Controls</h3>
+          <p>
+            A number of the params are controllable with the OP-Z directly. Specifically using the <u>MOTION</u> track (far right).
+          </p>
+          <ul>
+            <li><b class='green'>GREEN DIAL</b>:  ← / → ・left/right</li>
+            <li><b class='blue'>BLUE DIAL</b>: brush size</li>
+            <li><b class='yellow'>YELLOW DIAL</b>: erase (fully clockwise) </li>
+            <li><b class='red'>RED DIAL</b>: ↑ / ↓ ・ up/down</li>
+          </ul>
+          <p>
+            Just try and you'll get it.
+          </p>
+          <hr/>
+          <h2>Browser Support</h2>
+          <p>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/MIDIAccess#Browser_compatibility">Unfortunately Web MIDI is supported by a limited number of browsers</a>.
+          </p>
+          <p>
+            <b>tl;dr, I'd recommend using Chrome.</b>
+          </p>
+          <hr/>
+          <h2>Code</h2>
+          <p>
+            Uses <a class="github-button" href="https://github.com/nbw/opz" data-icon="octicon-star" aria-label="Star nbw/opz on GitHub">OPZ.js</a> to parse midi. A link to the code can be found in the libary's example section.
+          </p>
+          <hr/>
+          <img id="opz" src="src/img/opz_white.svg"/>
+        </div>
+      </div>
+      <div id="sketch">
+        <div class="topbar">
+          <div class="bar">
+            <div class="fill">
+              <div class="x">
+                <div>
+                  <i></i>
+                  <i></i>
+                </div>
+              </div>
+              <span class="lines">
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+              </span>
+            </div>
+            <div class="title">
+              <a href="/">SKETCH</a>
+            </div>
+            <div class="fill">
+              <span class="lines">
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div id="start">
+          <div>
+            <p>
+              Move both the <b class='green'>GREEN</b> and <b class='red'>RED</b> dials (motion track) to configure the brush, then click:
+            </p>
+            <button>Start</button>
+          </div>
+        </div>
+        <div id="screen">
+          <canvas id="canvas"></canvas>
+        </div>
+        <div id="keyboard">
+          <div class="row">
+            <div class="col col-4">
+              <div data-key="1"></div>
+              <div data-key="3"></div>
+              <div data-key="5"></div>
+            </div>
+            <div class="col col-3">
+              <div data-key="8"></div>
+              <div data-key="10"></div>
+            </div>
+            <div class="col col-4">
+              <div data-key="13"></div>
+              <div data-key="15"></div>
+              <div data-key="17"></div>
+            </div>
+            <div class="col col-3">
+              <div data-key="20"></div>
+              <div data-key="22"></div>
+            </div>
+            <div class="col col-14 between">
+              <div data-key="0"></div>
+              <div data-key="2"></div>
+              <div data-key="4"></div>
+              <div data-key="6"></div>
+              <div data-key="7"></div>
+              <div data-key="9"></div>
+              <div data-key="11"></div>
+              <div data-key="12"></div>
+              <div data-key="14"></div>
+              <div data-key="16"></div>
+              <div data-key="18"></div>
+              <div data-key="19"></div>
+              <div data-key="21"></div>
+              <div data-key="23"></div>
+            </div>
+          </div>
+        </div>
+        <div class="knob left">
+          <div>
+            <div class="plus"></div>
+            <div class="plus thin"></div>
+          </div>
+        </div>
+        <div class="knob right">
+          <div>
+            <div class="plus"></div>
+            <div class="plus thin"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
+
