@@ -1,45 +1,12 @@
-# OP-Z Starter
+# SKETCH: OP-Z
 
-OP-Z starter for [opzjs](https://github.com/nbw/opz)
+[https://sketch.nathanwillson.com/](https://sketch.nathanwillson.com/)
 
-# Usage
+Midi parsed with [opzjs](https://github.com/nbw/opz)
 
-Assumes you've installed Node and NPM.
+![banner](/src/img/banner.png)
 
-Uses [browserify](https://github.com/browserify/browserify) to compile assests into a single file.
+# Notes
 
-**open `index.html`**
-
-## Install
-
-1. Node and NPM
-1. Install browserify
-
-```
-npm install -g browserify
-```
-
-1. Install deps (mostly Babel)
-
-```
-npm install
-```
-
-1. Build script.js (OPTION 1)
-
-```
-npm run build
-```
-
-1. Auto-build with (OPTION 2)
-
-```
-npm run watch
-```
-
-Auto-build uses [watchify](https://github.com/browserify/watchify).
-
-## Contributions
-
-Contributions are welcome, especially for bugs.
+Made with [https://github.com/nbw/opz-starter](https://github.com/nbw/opz-starter).
 
